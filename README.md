@@ -8,4 +8,4 @@
 
 ## App use
 
-### Simply write a Todo that you want added to the list, strike through todo by clicking the text. Delete Todo with the delete button found under individual todo
+Simply write a Todo that you want added to the list, strike through todo by clicking the text. Delete Todo with the delete button found under individual todo
