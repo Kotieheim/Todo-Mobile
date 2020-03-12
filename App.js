@@ -1,28 +1,55 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+// import { uuid } from "uuidv4";
+import { StyleSheet, View, Text, FlatList, Dimensions } from "react-native";
+import Header from "./components/Header";
+import TodoItem from "./components/TodoItem";
+import AddTodo from "./components/AddTodo";
 
 export default function App() {
+  const [todos, setTodos] = useState([
+    { text: "buy toilet-paper", key: "1" },
+    { text: "realize its all gone", key: "2" },
+    { text: "panic", key: "3" }
+  ]);
+  const pressHandler = key => {
+    setTodos(prevTodos => {
+      return prevTodos.filter(todo => todo.key != key);
+    });
+  };
+
+  const submitTodo = text => {
+    setTodos(prevTodos => {
+      return [{ text: text, key: Math.random().toString() }, ...prevTodos];
+    });
+  };
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.boldText}>Hello World</Text>
+      <Header />
+      <View style={styles.content}>
+        <AddTodo submitTodo={submitTodo} />
+        <View style={styles.list}>
+          <FlatList
+            contentContainerStyle={{ paddingBottom: 8 }}
+            data={todos}
+            renderItem={({ item }) => (
+              <TodoItem pressHandler={pressHandler} item={item} />
+            )}
+          />
+        </View>
       </View>
     </View>
   );
 }
-
+let { height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "#7a5c61"
   },
-  header: {
-    backgroundColor: "pink",
-    padding: 20
+  content: {
+    padding: 40
   },
-  boldText: {
-    fontWeight: "bold"
+  list: {
+    marginTop: 20
   }
 });
