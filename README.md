@@ -1,7 +1,7 @@
 # React native ToDo app
 
 1. git clone
-2. cd <file name>
+2. cd into file
 3. npm install
 4. npm start or expo start
 5. Scan QR code or run on Android emulator/iOS simulator
