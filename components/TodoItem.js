@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { StyleSheet, Text, TouchableOpacity, View, Button } from "react-native";
-import { AuthSession } from "expo";
 
 export default function TodoItem({ item, pressHandler }) {
   const [state, setstate] = useState(true);
