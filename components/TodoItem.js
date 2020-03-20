@@ -12,9 +12,11 @@ export default function TodoItem({ item, pressHandler }) {
   };
   let lineStyle = {
     textDecorationLine: "none",
-    color: "white",
+    color: "#e5e5e5",
     marginLeft: 15,
-    fontSize: 16
+    fontSize: 18,
+    fontFamily: "Acme",
+    letterSpacing: 0.7
   };
   if (!state) lineStyle.textDecorationLine = "line-through";
   return (
@@ -22,16 +24,12 @@ export default function TodoItem({ item, pressHandler }) {
       <MaterialIcons
         name="delete"
         size={25}
-        color="#fff"
+        color="#fca311"
         onPress={() => pressHandler(item.key)}
       />
       <Text onPress={() => toggleCheck()} style={lineStyle}>
         {item.text}
       </Text>
-
-      {/* <Text style={styles.delete} onPress={() => pressHandler(item.key)}>
-        Delete
-      </Text> */}
     </View>
   );
 }
@@ -42,19 +40,9 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     padding: 20,
     marginTop: 16,
-    borderColor: "#bbb",
+    borderColor: "#fca311",
     borderWidth: 1,
     borderStyle: "solid",
     borderRadius: 10
-  },
-  delete: {
-    backgroundColor: "#f7accf",
-    color: "#392759",
-    width: 70,
-    padding: 6,
-    textAlign: "center",
-    borderRadius: 2,
-    marginLeft: 10,
-    marginTop: 2
   }
 });
