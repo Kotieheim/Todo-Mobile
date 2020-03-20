@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-// import { uuid } from "uuidv4";
+import { AppLoading } from "expo";
+import * as Font from "expo-font";
 import {
   StyleSheet,
   View,
@@ -20,6 +21,7 @@ export default function App() {
     { text: "realize its all gone", key: "2" },
     { text: "panic", key: "3" }
   ]);
+
   const pressHandler = key => {
     setTodos(prevTodos => {
       return prevTodos.filter(todo => todo.key != key);
@@ -40,7 +42,6 @@ export default function App() {
     }
   };
   return (
-    // <Sandbox></Sandbox>
     <TouchableWithoutFeedback
       onPress={() => {
         Keyboard.dismiss();
