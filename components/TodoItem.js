@@ -34,7 +34,7 @@ export default function TodoItem({ item, pressHandler }) {
           padding: 6,
           textAlign: "center",
           borderRadius: 2,
-          marginLeft: 107,
+          marginLeft: 10,
           marginTop: 2
         }}
         onPress={() => pressHandler(item.key)}

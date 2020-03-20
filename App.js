@@ -6,7 +6,9 @@ import {
   Text,
   FlatList,
   Dimensions,
-  Alert
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import Header from "./components/Header";
 import TodoItem from "./components/TodoItem";
@@ -38,21 +40,27 @@ export default function App() {
     }
   };
   return (
-    <View style={styles.container}>
-      <Header />
-      <View style={styles.content}>
-        <AddTodo submitTodo={submitTodo} />
-        <View style={styles.list}>
-          <FlatList
-            contentContainerStyle={{ paddingBottom: 8 }}
-            data={todos}
-            renderItem={({ item }) => (
-              <TodoItem pressHandler={pressHandler} item={item} />
-            )}
-          />
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}
+    >
+      <View style={styles.container}>
+        <Header />
+        <View style={styles.content}>
+          <AddTodo submitTodo={submitTodo} />
+          <View style={styles.list}>
+            <FlatList
+              contentContainerStyle={{ paddingBottom: 8 }}
+              data={todos}
+              renderItem={({ item }) => (
+                <TodoItem pressHandler={pressHandler} item={item} />
+              )}
+            />
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 let { height } = Dimensions.get("window");
