@@ -14,7 +14,7 @@
 
 ## Summary
 
-Simple Todo app made to become more familar using React Native, Expo-cli as well as implemending React Hooks. Simply write a Todo that you want added to the list, strike through todo by clicking the text. Delete todo by clicking trash can icon next to individual todo.
+Todo app made to become more familar using React Native, Expo-cli as well as implemending React Hooks. Simply write a Todo that you want added to the list, strike through todo by clicking the text. Delete todo by clicking trash can icon next to individual todo.
 
 ## Built with
 
